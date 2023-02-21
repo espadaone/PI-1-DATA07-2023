@@ -1,36 +1,32 @@
+
 import pandas as pd
 from surprise import SVDpp
 from surprise import Dataset, Reader
 from surprise.model_selection import train_test_split
+from surprise import SVD
 from surprise import accuracy
 from collections import defaultdict
+from surprise import SVD
 
-movies=pd.read_csv('movies_analisis.csv')
 
-reviews=pd.read_csv('reviews.csv')
 
-movies=movies.drop(['show_id','cast','date_added','release_year','rating','duration_int','duration_type','scored'],axis=1)
-
-movies = movies.reindex(columns=['Id', 'title', 'listed_in','description'])
-
-reviews=reviews.drop(['Fecha'],axis=1)
-
-df_movies=reviews.merge(movies, on='Id',how='left')
-
-df_movies_to_model = df_movies[df_movies.columns[:-3]]
-
-reader = Reader()
-
-data = Dataset.load_from_df(df_movies_to_model[df_movies.columns[:-3]],reader)
-
-#Separo en train y test
-train, test = train_test_split(data, test_size=0.25)
-
-#Instanciamos el algoritmo y entrenamos
-svd = SVDpp()
-svd.fit(train)
-preds = svd.test(test)
-
-#Métricas de evaluacin
-accuracy.mae(preds)
-accuracy.rmse(preds)
+def recomendacion_pelicula(usuario, pelicula):
+    # Cargar los datos de películas y calificaciones
+    
+    # Obtener el ID de la película
+    movie_row = df_movies[df_movies['title'] == pelicula]
+    
+    movie_id = movie_row['Id'].values[1]
+    
+    #movie_id = df_movies[df_movies['title'] == pelicula]['Id'].values[1]
+    
+    # Hacer la predicción con el modelo para el usuario y la película
+    prediction = model.predict(usuario, movie_id).est
+    
+    # Si la predicción es mayor que 3.5, recomendar ver la película
+    if prediction >= 3.3:
+        return f"Se recomienda ver {pelicula}."
+    else:
+        return f"no se recomienda ver la {pelicula}."
+    
+recomendacion_pelicula(usuario=2, pelicula='silent night')
