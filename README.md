@@ -10,6 +10,7 @@ https://huggingface.co
 y Gradio
 https://gradio.app/demos/
 en esta misma rama del proyecto tambien se encuentra notebook del proyecto de mantenimiento de datos y el desarrollo de las funciones de la API 
+Tambien esta el analisis exploratorio EDA que figura mas arriba donde tenemos distintos tipos de imagenes y de graficas que nos da las herramientas de pandas luego de haber tratado los datos. 
 
 EN ESTE PROYECTO SE TUVIERON EN CUENTA LAS SIGUIENTES CONSIGNAS:
 
