@@ -1,4 +1,4 @@
-# PI-1-DATA07-2023
+# PI-1-DATA07-2023- Sistema de Recomendacion de Peliculas
 En este proyecto se plantean dos una API de funciones que colocando lo pedido te devuelve por ejemplo 
 por duracion cuanto es en minutos o temporadas. 
 El otro proyecto de ML te devuelve ante un usuario determinado y una pelicula dada si es recomendable o no.
